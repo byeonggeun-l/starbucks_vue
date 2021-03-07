@@ -2,10 +2,13 @@
   <!-- HEADER -->
   <header>
     <div class="inner">
-      <a href="/">
+      <a
+        href="/"
+        class="logo"
+      >
         <img
           src="@/assets/images/starbucks_logo.png"
-          alt=""
+          alt="STARBUCKS"
         >
       </a>
     </div>
@@ -13,11 +16,27 @@
 </template>
 
 <script>
-export default {
 
+
+
+export default {
+  mounted() {
+
+  },
+  
+  methods: {
+  }
 }
 </script>
 
 <style>
+header {
+  background-color: royalblue;
+}
+header .inner {
 
+}
+header .logo {
+
+}
 </style>

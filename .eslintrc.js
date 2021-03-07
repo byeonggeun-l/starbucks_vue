@@ -15,11 +15,30 @@ module.exports = {
   rules: {
     'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
-    "brace-style": [
-      'error',
-      '1tbs'
-    ],
+    // "brace-style": [
+    //   'error',
+    //   '1tbs'
+    // ],
+    "brace-style": [2, "stroustrup"],
+    "space-before-blocks":['error'],
+
     "indent": ["error", 2],
+    'vue/multiline-html-element-content-newline': ['error', {
+      'ignoreWhenEmpty': true,
+      'allowEmptyLines': false,
+      'ignores': ['pre', 'textarea'],
+    }],
+    'vue/singleline-html-element-content-newline': ['error', {
+      'ignoreWhenNoAttributes': true,
+      'ignoreWhenEmpty': true,
+      'ignores': ['pre', 'textarea'],
+    }],
+    'vue/html-comment-content-newline': ['error',
+      {
+        'singleline': 'never',
+        'multiline': 'never',
+      },
+    ],
     'vue/order-in-components': [
       'error',
       {
@@ -48,7 +67,6 @@ module.exports = {
         ],
       },
     ],
-    
     'vue/attributes-order': [
       'error',
       {
