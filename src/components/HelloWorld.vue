@@ -11,7 +11,7 @@ export default {
     msg: String
   },
   created(){
-    document.title = "test";
+    document.title = "Starbucks Coffee Korea";
   },
   mounted () {
   },
