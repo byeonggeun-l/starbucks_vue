@@ -5,10 +5,11 @@ const routes = [
   {
     path: "/",
     name: "Home",
-    component: Home
+    component: Home,
+    meta: { title: 'Skills - MyApp' },
   },
   //For GitHub.
-  
+
 ];
 
 const router = createRouter({
