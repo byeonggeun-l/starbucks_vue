@@ -1,15 +1,10 @@
 <template>
-  <div class="hello">
-    test
-  </div>
+  <div class="HelloWorld" />
 </template>
 
 <script>
 export default {
   name: "HelloWorld",
-  props: {
-    msg: String
-  },
   created(){
     document.title = "Starbucks Coffee Korea";
   },
