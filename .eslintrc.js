@@ -19,8 +19,10 @@ module.exports = {
     //   'error',
     //   '1tbs'
     // ],
-    "brace-style": [2, "stroustrup"],
-    "space-before-blocks":['error'],
+    "brace-style": [2, "1tbs"],
+    // "space-before-blocks":['error'],
+    "space-before-blocks": ["error", { "functions": "always", "keywords": "always", "classes": "always" }],
+    "keyword-spacing": ["error", { "before": true }],
 
     "indent": ["error", 2],
     'vue/multiline-html-element-content-newline': ['error', {
