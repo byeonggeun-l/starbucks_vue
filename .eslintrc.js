@@ -41,6 +41,7 @@ module.exports = {
         'multiline': 'never',
       },
     ],
+    'vue/require-prop-types':'error',
     'vue/order-in-components': [
       'error',
       {

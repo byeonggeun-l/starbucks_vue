@@ -6,6 +6,7 @@ body {
     font-weight: 400;
     line-height: 1.4;
     font-family: 'Nanum Gothic', sans-serif;   
+    height: 3000px;
 }
 /* 이미지를 인라인 요소가 아닌
 하나의 화면을 구성하는 레이아웃으로
