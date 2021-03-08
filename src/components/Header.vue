@@ -55,19 +55,22 @@
         :items="headerItems"
       />
     </div>    
-    <div class="badges">
-      <div class="badge">
-        <img
-          src="@/assets/images/badge1.jpg"
-          alt="Badge"
-        >
-      </div>
-      <div class="badge">
-        <img
-          src="@/assets/images/badge2.jpg"
-          alt="Badge"
-        >
-      </div>
+    <div
+      ref="refBadges"
+      class="badges"
+    >
+      <Badge 
+        :path="'images/badge1.jpg'"
+        :alt="'Badge'"
+      />
+      <Badge 
+        :path="'images/badge2.jpg'"
+        :alt="'Badge'"
+      />
+      <Badge 
+        :path="'testimages/badge3.jpg'"
+        :alt="'Badge'"
+      />
     </div>
   </header>
 </template>
@@ -75,12 +78,16 @@
 <script>
 
 import Header_MainMenu from '@/components/Header_MainMenu.vue'
+import Badge from '@/components/Badge.vue'
+import { throttle } from 'lodash';
+import gsap from "gsap";
 
 
 export default {
   name: "Header",
   components: {
     Header_MainMenu,
+    Badge,
   },
   data() {
     return {
@@ -257,19 +264,31 @@ export default {
     }
   },
   mounted() {
-    console.log(this.headerItems[0].items[1]);
-  },
-  methods: {
+    // console.log(throttle);
+    window.addEventListener('scroll', throttle(this.scrolling, 300));
   },
   methods:{
-    clickSearch(e) {
+    clickSearch() {
       this.$refs.refSearchInput.focus();
       this.$refs.refSearch.classList.add('focused');
       this.$refs.refSearchInput.setAttribute('placeholder', '통합검색');
     },
-    blurSearch(e) {
+    blurSearch() {
       this.$refs.refSearch.classList.remove('focused');
       this.$refs.refSearchInput.setAttribute('placeholder', '');
+    },
+    scrolling() {
+      if (window.scrollY > 500) {
+        gsap.to(this.$refs.refBadges, .6, {
+          opacity: 0,
+          display: 'none',
+        });
+      } else {
+        gsap.to(this.$refs.refBadges, .6, {
+          opacity: 1,
+          display: 'block',
+        });
+      }
     }
   }
 }
