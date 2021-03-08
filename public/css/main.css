@@ -16,3 +16,8 @@ img {
 a{
     text-decoration: none;
 }
+.inner{
+    width: 1100px;
+    margin: 0 auto;
+    position: relative;
+}

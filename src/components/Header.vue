@@ -51,6 +51,118 @@
           </div>
         </div>
       </div>
+
+      <ul class="main-menu">
+        <li class="item">
+          <div class="item__name">
+            COFFEE
+          </div>
+          <div class="item__contents">
+            <div class="contents__menu">
+              <ul class="inner">
+                <li>
+                  <h4>커피</h4>
+                  <ul>
+                    <li>스타벅스 원두</li>
+                    <li>스타벅스 비아</li>
+                    <li>스타벅스 오리가미</li>
+                  </ul>
+                </li>
+                <li>
+                  <h4>에스프레소 음료</h4>
+                  <ul>
+                    <li>도피오</li>
+                    <li>에스프레소 마키아또</li>
+                    <li>아메리카노</li>
+                    <li>마키아또</li>
+                    <li>카푸치노</li>
+                    <li>라떼</li>
+                    <li>모카</li>
+                    <li>리스트레도 비안코</li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+            <div class="contents__texture">
+              <div class="inner">
+                <h4>나와 어울리는 커피 찾기</h4>
+                <p>스타벅스가 여러분에게 어울리는 커피를 찾아드립니다.</p>
+                <h4>최상의 커피를 즐기는 법</h4>
+                <p>여러가지 방법을 통해 다양한 풍미의 커피를 즐겨보세요.</p>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="item">
+          <div class="item__name">
+            MENU
+          </div>
+          <div class="item__contents">
+            <div class="contents__menu">
+              <div class="inner">
+                MENU
+              </div>
+            </div>
+            <div class="contents__texture">
+              <div class="inner">
+                MENU
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="item">
+          <div class="item__name">
+            STORE
+          </div>
+          <div class="item__contents">
+            <div class="contents__menu">
+              contents__menu
+            </div>
+            <div class="contents__texture">
+              contents__texture
+            </div>
+          </div>
+        </li>
+        <li class="item">
+          <div class="item__name">
+            RESPONSIBILITY
+          </div>
+          <div class="item__contents">
+            <div class="contents__menu">
+              contents__menu
+            </div>
+            <div class="contents__texture">
+              contents__texture
+            </div>
+          </div>
+        </li>
+        <li class="item">
+          <div class="item__name">
+            MY STARBUCKS REWARDS
+          </div>
+          <div class="item__contents">
+            <div class="contents__menu">
+              contents__menu
+            </div>
+            <div class="contents__texture">
+              contents__texture
+            </div>
+          </div>
+        </li>
+        <li class="item">
+          <div class="item__name">
+            WHAT'S NEW
+          </div>
+          <div class="item__contents">
+            <div class="contents__menu">
+              contents__menu
+            </div>
+            <div class="contents__texture">
+              contents__texture
+            </div>
+          </div>
+        </li>
+      </ul>
     </div>
   </header>
 </template>
@@ -80,21 +192,13 @@ export default {
 }
 </script>
 
-<style>
+<style scoped lang="scss">
 header {
   background-color: #f6f5f0;
   border-bottom: 1px solid #c8c8c8;
 }
-header .inner {
-  width: 1100px;
+header > .inner {
   height: 120px;
-  /* 자식 요소들이 해당 요소를 기준으로
-  움직일 수 있도록 position: relative 로 설정한다. */
-  position: relative;
-  /* 상단과 하단의 값은 주지 않고,
-  좌우 여백을 자동으로 주기 때문에
-  좌우 정렬이 된다. */
-  margin: 0 auto;
 }
 header .logo {
   height:75px;
@@ -185,5 +289,76 @@ header .sub-menu .search .material-icons {
 }
 header .sub-menu .search.focused .material-icons {
   opacity: 0;
+} 
+
+
+
+
+/* maun-menu */
+/* maun-menu */
+/* maun-menu */
+header .main-menu {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: 1;
+  display: flex;
+}
+header .main-menu .item {
+
+}
+header .main-menu .item__name {
+  padding: 10px 20px 34px 20px;
+  font-family: Arial, sans-serif;
+  font-size:  13px;
+}
+header .main-menu .item:hover .item__name {
+  background-color: #2c2a29;
+  color:#669900;
+  border-radius: 6px 6px 0 0;
+}
+header .main-menu .item .item__contents {
+  width: 100%;
+  position: fixed;
+  left: 0;
+  display: none;
+}
+header .main-menu .item:hover .item__contents {
+  display: block;
+}
+header .main-menu .item .item__contents .contents__menu {
+  background-color: #2c2a29;
+}
+header .main-menu .item .item__contents .contents__menu > ul {
+  display:flex;
+  padding: 20px 0;
+}
+header .main-menu .item .item__contents .contents__menu > ul  > li {
+    width: 220px;
+}
+header .main-menu .item .item__contents .contents__menu > ul > li h4 {
+  padding: 3px 0 12px 0;
+  font-size: 14px;
+  color: #fff;
+}
+header .main-menu .item .item__contents .contents__menu > ul > li ul li {
+  padding: 5px 0;
+  font-size: 12px;
+  color: #999;
+  cursor: pointer;
+}
+header .main-menu .item .item__contents .contents__texture {
+  padding: 26px 0;
+  font-size: 12px;
+  background-image: url("../assets/images/main_menu_pattern.jpg");
+}
+header .main-menu .item .item__contents .contents__texture h4 {
+  color: #999;
+  font-weight: 700;
+}
+header .main-menu .item .item__contents .contents__texture p {
+  color: #669900;
+  margin: 4px 0 14px;
+  font-size: 12px;
 }
 </style>
