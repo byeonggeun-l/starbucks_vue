@@ -34,9 +34,19 @@
             </a>
           </li>
         </ul>
-        <div class="search">
-          <input type="text">
-          <div class="material-icons">
+        <div
+          ref="refSearch"
+          class="search"
+          @click="clickSearch"
+        >
+          <input
+            ref="refSearchInput"
+            type="text"
+            @blur="blurSearch"
+          >
+          <div
+            class="material-icons"
+          >
             search
           </div>
         </div>
@@ -57,15 +67,14 @@ export default {
   methods: {
   },
   methods:{
-    testda() {
-      if (true) {
-        
-      } else {
-        
-      }
+    clickSearch(e) {
+      this.$refs.refSearchInput.focus();
+      this.$refs.refSearch.classList.add('focused');
+      this.$refs.refSearchInput.setAttribute('placeholder', '통합검색');
     },
-    testd2() {
-      
+    blurSearch(e) {
+      this.$refs.refSearch.classList.remove('focused');
+      this.$refs.refSearchInput.setAttribute('placeholder', '');
     }
   }
 }
@@ -73,7 +82,8 @@ export default {
 
 <style>
 header {
-  background-color: royalblue;
+  background-color: #f6f5f0;
+  border-bottom: 1px solid #c8c8c8;
 }
 header .inner {
   width: 1100px;
@@ -85,7 +95,6 @@ header .inner {
   좌우 여백을 자동으로 주기 때문에
   좌우 정렬이 된다. */
   margin: 0 auto;
-  background: orange;
 }
 header .logo {
   height:75px;
@@ -97,10 +106,12 @@ header .logo {
   bottom: 0;
   left: 0;
   margin: auto;
-  display: none;
 }
 header .sub-menu {
-  
+  position:absolute;
+  top: 10px;
+  right: 0;
+  display:flex;
 }
 header .sub-menu ul.menu {
   font-family: Arial, sans-serif;
@@ -143,12 +154,36 @@ header .sub-menu ul.menu li a:hover {
   color: #000;
 }
 header .sub-menu .search {
-
+  height:34px;
+  position:relative;
 }
-header .sub-menu .search input{
-
+header .sub-menu .search input {
+  width: 36px;
+  height: 34px;
+  padding: 4px 10px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  border-radius: 5px;
+  outline:none;
+  background-color: #fff;
+  color: #777;
+  font-size: 12px;
+  transition: width .4s;
 }
-header .sub-menu .search .material-icons{
-
+header .sub-menu .search input:focus {
+  width: 190px;
+  border-color: #669900;
+}
+header .sub-menu .search .material-icons {
+  height: 24px;
+  position:absolute;
+  top: 0;
+  bottom: 0;
+  right: 5px;
+  margin: auto; 
+  transition: .4s;
+}
+header .sub-menu .search.focused .material-icons {
+  opacity: 0;
 }
 </style>
