@@ -34,8 +34,6 @@
               </a>
             </swiper-slide>
           </swiper>
-
-
           <a
             href="javascript:void(0)"
             class="notice-line__more"
@@ -54,6 +52,77 @@
           </div>
         </div>
       </div>
+    </div>
+    <div class="promotion">
+      <swiper
+        :slides-per-view="3"
+        :loop="true"
+        :space-between="10"
+        :centered-slides="true"
+        :pagination="{ clickable: true }"
+        navigation
+      >
+        <swiper-slide>
+          <img
+            src="@/assets/images/promotion_slide1.jpg"
+            alt="2021 뉴이어, 스타벅스와 함께 즐겁고 활기차게 시작하세요!"
+          >
+          <a
+            href="javascript:void(0)"
+            class="btn"
+          >
+            자세히 보기
+          </a>
+        </swiper-slide>
+        <swiper-slide>
+          <img
+            src="@/assets/images/promotion_slide2.jpg"
+            alt="기간 내 스타벅스 카드 e-Gift를 3만원 이상 선물 시, 아메리카노 e-쿠폰을 드립니다."
+          >
+          <a
+            href="javascript:void(0)"
+            class="btn"
+          >
+            자세히 보기
+          </a>
+        </swiper-slide>
+        <swiper-slide>
+          <img
+            src="@/assets/images/promotion_slide3.jpg"
+            alt="2021 뉴이어, 스타벅스와 함께 즐겁고 활기차게 시작하세요!"
+          >
+          <a
+            href="javascript:void(0)"
+            class="btn"
+          >
+            자세히 보기
+          </a>
+        </swiper-slide>
+        <swiper-slide>
+          <img
+            src="@/assets/images/promotion_slide4.jpg"
+            alt="2021 뉴이어, 스타벅스와 함께 즐겁고 활기차게 시작하세요!"
+          >
+          <a
+            href="javascript:void(0)"
+            class="btn"
+          >
+            자세히 보기
+          </a>
+        </swiper-slide>
+        <swiper-slide>
+          <img
+            src="@/assets/images/promotion_slide5.jpg"
+            alt="2021 뉴이어, 스타벅스와 함께 즐겁고 활기차게 시작하세요!"
+          >
+          <a
+            href="javascript:void(0)"
+            class="btn"
+          >
+            자세히 보기
+          </a>
+        </swiper-slide>
+      </swiper>
     </div>
   </section>
 </template>
@@ -74,6 +143,7 @@ import 'swiper/components/scrollbar/scrollbar.scss';
 // install Swiper modules
 SwiperCore.use([Navigation, Pagination, Scrollbar, A11y, Autoplay]);
 
+
 export default {
   name: "NoticeSection",
   components: {
@@ -81,13 +151,41 @@ export default {
     SwiperSlide,
   },
   mounted() {
+    const buttonPrev = document.createElement('div');
+    buttonPrev.className = "material-icons"
+    const buttonNext = document.createElement('div');
+    buttonNext.className = "material-icons"
+
+    const buttonTextPrev = document.createTextNode('arrow_back');
+    const buttonTextNext = document.createTextNode('arrow_forward');
+    buttonPrev.appendChild(buttonTextPrev);
+    buttonNext.appendChild(buttonTextNext);
+
+    document.getElementsByClassName("swiper-button-prev")[0].appendChild(buttonPrev);
+    document.getElementsByClassName("swiper-button-next")[0].appendChild(buttonNext);
+
+
+
+    // let insertElement = document.getElementsByClassName("swiper-button-prev");
+    // console.log(insertElement);
+    // console.log(insertElement.childNodes[0]);
+    // insertElement.insertBefore(buttonPrev, insertElement);
+
+
+
   },
   methods: {
-    onSwiper(swiper) {
+    prev() {
+      this.$refs.swiper.$el.slideNext()
     },
-    onSlideChange() {
-    },
+    next() {
+      this.$refs.swiper.$el.slideNext()
+    }
   },
+  date() {
+    return {
+    }
+  }
 }
 </script>
 

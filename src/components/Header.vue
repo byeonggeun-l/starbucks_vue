@@ -67,10 +67,10 @@
         :path="'images/badge2.jpg'"
         :alt="'Badge'"
       />
-      <Badge 
+      <!-- <Badge 
         :path="'testimages/badge3.jpg'"
         :alt="'Badge'"
-      />
+      /> -->
     </div>
   </header>
 </template>
